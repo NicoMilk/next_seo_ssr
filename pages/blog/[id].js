@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Link from 'next/link';
+// import Image from 'next/image';
 
 export default function Post({ post }) {
   return (
@@ -11,6 +12,11 @@ export default function Post({ post }) {
       <main>
         <h1>{post.title}</h1>
         <p>{post.body}</p>
+        <img
+          src={`https://picsum.photos/id/100${post.id}/400/300`}
+          alt={`Ceci est une image pour ${post.title}`}
+        ></img>
+        <br />
         <Link href="/">
           <a>🏠 Retour</a>
         </Link>
@@ -47,6 +53,7 @@ export async function getServerSideProps({ params }) {
   const post = await fetch(
     `http://jsonplaceholder.typicode.com/posts/${params.id}`
   ).then((r) => r.json());
+
   return {
     props: {
       post,
