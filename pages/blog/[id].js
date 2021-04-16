@@ -1,23 +1,22 @@
-import Head from 'next/head'
-import Link from 'next/link'
+import Head from 'next/head';
+import Link from 'next/link';
 
-export default function Post ({post}) {
-
-  return <>
-    <Head>
-      <title>{post.title}</title>
-      <meta name="description" content="Tag meta personnalise pour post demo SEO"/>
-    </Head>
-    <main>
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
-      <Link href="/">
-        <a>
-          🏠 Retour
-        </a>
-      </Link>
-    </main>
-  </>
+export default function Post({ post }) {
+  return (
+    <>
+      <Head>
+        <title>{post.title}</title>
+        <meta name="description" content={`${post.body}`} />
+      </Head>
+      <main>
+        <h1>{post.title}</h1>
+        <p>{post.body}</p>
+        <Link href="/">
+          <a>🏠 Retour</a>
+        </Link>
+      </main>
+    </>
+  );
 }
 
 // Nico_uncomment for static rendering
@@ -42,14 +41,15 @@ export default function Post ({post}) {
 //           fallback: false,
 //         }
 //       }
-      
+
 // Nico_uncomment for server side rendering
-export async function getServerSideProps ({params}) {
-  const post = await fetch(`http://jsonplaceholder.typicode.com/posts/${params.id}`)
-    .then(r=>r.json())
+export async function getServerSideProps({ params }) {
+  const post = await fetch(
+    `http://jsonplaceholder.typicode.com/posts/${params.id}`
+  ).then((r) => r.json());
   return {
     props: {
-      post
-    }
-  }
+      post,
+    },
+  };
 }
