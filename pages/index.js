@@ -52,14 +52,14 @@ export async function getStaticProps() {
     `http://jsonplaceholder.typicode.com/posts?_limit=5`
   ).then((r) => r.json());
 
-  const images = await fetch(
-    `https://picsum.photos/v2/list?limit=5`
-  ).then((r) => r.json());
+  // const images = await fetch(
+  //   `https://picsum.photos/v2/list?limit=5`
+  // ).then((r) => r.json());
 
   return {
     props: {
       posts,
-      images,
+      // images,
       date: new Date().toLocaleTimeString(),
     },
     revalidate: 10,
