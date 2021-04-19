@@ -22,10 +22,14 @@ export default function Home({ posts, images, date }) {
           content="Tag meta personnalise pour demo SEO"
         />
       </Head>
-      {/* <h1>Chrono : {count}</h1> */}
-      <h1>Date : {date}</h1>
       <h1>Bonjour Monde !</h1>
       <p>ceci est la page d'accueil du site</p>
+      {/* <h1>Chrono : {count}</h1> */}
+      <h2>
+        L'heure est revalidée à la 1ère requête passé un délai de 10s
+        (configurable) :
+      </h2>
+      <h3>Heure : {date}</h3>
       <ul>
         {posts.map((post) => (
           <li style={{ listStyle: 'none' }}>
