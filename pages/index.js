@@ -66,7 +66,7 @@ export async function getStaticProps() {
       // images,
       date: new Date().toLocaleTimeString(),
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 }
 
