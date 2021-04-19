@@ -26,7 +26,7 @@ export default function Home({ posts, images, date }) {
       <p>ceci est la page d'accueil du site</p>
       {/* <h1>Chrono : {count}</h1> */}
       <h2>
-        L'heure est revalidée à la 1ère requête passé un délai de 10s
+        L'heure est revalidée à la 1ère requête passé un délai de 60s
         (configurable) :
       </h2>
       <h3>Heure : {date}</h3>
